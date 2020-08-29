@@ -53,6 +53,10 @@ public class Player : MonoBehaviour
         string scene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(scene);
     }
+    public void mainmenu()
+    {
+        SceneManager.LoadScene(0);
+    }
     void LoadNextScene()
     {
         //CANVAS
@@ -61,7 +65,7 @@ public class Player : MonoBehaviour
     }
     public void loadnextscene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     private void OnTriggerEnter(Collider other)
     {
