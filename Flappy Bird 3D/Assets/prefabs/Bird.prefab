@@ -107,6 +107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76472144581d544a9c724a6f97bf087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathcanvas: {fileID: 1116837814452801150, guid: 3922d09c65ed9af49a4427e1bd26ccfd,
+    type: 3}
+  nextlevelcanvas: {fileID: 6840321816002804671, guid: ff97836da0dec89459e3cb288ba69f43,
+    type: 3}
   forwardforce: 5
   upwardforce: 250
   dead: 0

@@ -6,20 +6,24 @@ using UnityEngine;
 
 public class hurdels_oscillator : MonoBehaviour
 {
-    public float Speed = 2f;
-    float x;
-    float ypos;
-    // Start is called before the first frame update
+    [SerializeField] Vector3 movement;
+    [SerializeField] float period = 2f;
+    [Range(0, 1)] [SerializeField] float movementfactor;
+    Vector3 startingpos;
+    // Use this for initialization
     void Start()
     {
-        x = transform.position.y;
+        startingpos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ypos = Mathf.Sin(x) * Speed * Time.deltaTime;
-        transform.position += new Vector3(transform.position.x, ypos, transform.position.z);
-        x += Time.deltaTime;
+        float cycles = Time.time / period;
+        const float tau = Mathf.PI * 2;
+        float rawsinwave = Mathf.Sin(cycles * tau);
+        movementfactor = rawsinwave;
+        Vector3 offset = movement * movementfactor;
+        transform.position = offset + startingpos;
     }
 }
