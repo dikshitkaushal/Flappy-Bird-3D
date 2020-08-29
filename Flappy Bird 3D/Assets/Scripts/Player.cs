@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
     {
         if(other.gameObject.tag=="Finish")
         {
-            forwardforce = 0;
+            forwardforce = 3;
             upwardforce = 0;
             Debug.Log("Congratulations");
             nextlevelcanvas.enabled = true;

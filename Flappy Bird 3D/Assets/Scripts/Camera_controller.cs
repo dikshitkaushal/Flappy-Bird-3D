@@ -5,7 +5,7 @@ using UnityEngine;
 public class Camera_controller : MonoBehaviour
 {
     public Transform target;
-    [SerializeField] float Lerp_Factor = 0.14f;
+    [SerializeField] float Lerp_Factor = 0.15f;
     Vector3 offset = new Vector3(6.900001f, 3.18f, -5.9f);
     Vector3 pos;
 
