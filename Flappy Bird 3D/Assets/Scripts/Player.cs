@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] float forwardforce = 5.0f;
     [SerializeField] float upwardforce = 100.0f;
     Rigidbody m_rb;
+    float timer = 0;
     public bool dead = false;
     
     // Start is called before the first frame update
@@ -20,6 +21,15 @@ public class Player : MonoBehaviour
         m_rb = GetComponent<Rigidbody>();
     }
 
+    GUIStyle guiStyle = new GUIStyle();
+    private void OnGUI()
+    {
+        guiStyle.fontSize = 25;
+        guiStyle.normal.textColor = Color.white;
+        GUI.BeginGroup(new Rect(10, 10, 600, 150));
+        GUI.Label(new Rect(10, 25, 500, 30), "Score : " + (int)timer, guiStyle);
+        GUI.EndGroup();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -29,6 +39,11 @@ public class Player : MonoBehaviour
         {
             m_rb.AddForce(Vector3.up * upwardforce);
         }
+        if(!dead)
+        {
+            timer += Time.deltaTime;
+        }
+
     }
     private void OnCollisionEnter(Collision collision)
     {
